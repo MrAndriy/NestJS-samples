@@ -1,12 +1,18 @@
-# API with NestJS #2. Setting up a PostgreSQL database with TypeORM
+# API with NestJS #3. Authenticating users with bcrypt, Passport, JWT, and cookies
 
 Basics of connecting our NestJS application with a PostgreSQL database.
 
 ## dependencies:
 
-- @nestjs/config,
-- @@hapi/joi
-- @types/hapi\_\_joi
-- @nestjs/typeorm
-- typeorm
-- pg
+- @types/bcrypt
+- bcrypt
+- @nestjs/passport
+- passport
+- @types/passport-local
+- passport-local
+- @types/express
+- @nestjs/jwt
+- passport-jwt
+- @types/passport-jwt
+- cookie-parser
+- @types/cookie-parser
