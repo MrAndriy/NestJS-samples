@@ -49,5 +49,7 @@ export default class PostsService {
     if (!deleteResponse.affected) {
       throw new PostNotFoundException(id)
     }
+    console.log(deleteResponse)
+    return deleteResponse
   }
 }

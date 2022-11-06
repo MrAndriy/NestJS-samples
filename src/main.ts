@@ -6,6 +6,7 @@ import { ExcludeNullInterceptor } from './utils/excludeNull.interceptor'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+  app.getHttpAdapter().getInstance().set('etag', false)
   app.useGlobalPipes(new ValidationPipe())
   app.useGlobalInterceptors(new ExcludeNullInterceptor())
   app.use(cookieParser())
