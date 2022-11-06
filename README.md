@@ -1,7 +1,7 @@
-# API with NestJS #8. Writing unit tests
+# API with NestJS #9. Testing services and controllers with integration tests
 
-To do so, we’ve used the Jest library that comes bundled with NestJS. We’ve also used some of the built-in utilities to mock various services and modules properly. One of the most important ones was mocking the database connection so that we can keep our tests isolated.
+how our services integrate, we’ve also used the SuperTest library and tested a controller. By writing integration tests, we can thoroughly verify if our app works as expected. Therefore, it is a topic worth diving into.
 
 # dependencies
 
-- @nestjs/testing
+- supertest

@@ -6,8 +6,8 @@ import { getRepositoryToken } from '@nestjs/typeorm'
 
 import { UsersService } from '../../users/users.service'
 
-import { mockedConfigService } from '../../utils/mocks/config.service'
 import User from '../../users/entities/user.entity'
+import { mockedConfigService } from '../../utils/mocks/config.service'
 import { mockedJwtService } from '../../utils/mocks/jwt.service'
 
 describe('The AuthenticationService', () => {
