@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config'
 import { DatabaseModule } from './database/database.module'
 import { UsersModule } from './users/users.module'
 import { AuthenticationModule } from './authentication/authentication.module'
+import { CategoriesModule } from './categories/categories.module';
 import * as Joi from '@hapi/joi'
 
 @Module({
@@ -23,7 +24,8 @@ import * as Joi from '@hapi/joi'
     }),
     DatabaseModule,
     UsersModule,
-    AuthenticationModule
+    AuthenticationModule,
+    CategoriesModule
   ],
   controllers: [],
   providers: []
