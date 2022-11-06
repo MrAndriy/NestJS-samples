@@ -1,8 +1,3 @@
-# API with NestJS #4. Error handling and data validation
+# API with NestJS #5. Serializing the response with interceptors
 
-how error handling and validation works in NestJS. Thanks to looking into how the default BaseExceptionFilter works under the hood, we now know how to handle various exceptions properly. We know also know how to change the default behavior if there is such a need. We’ve also how to use the ValidationPipe and the class-validator library to validate incoming data.
-
-## dependencies:
-
-- class-validator
-- class-transformer
+how we can modify the response that we send back to our users. While the most straightforward way to do so is to serialize the response with ClassSerializerInterceptor, we can also create our own interceptor. We’ve also looked into how we can bypass the issue of using the @Res() decorator.
