@@ -1,18 +1,8 @@
-# API with NestJS #3. Authenticating users with bcrypt, Passport, JWT, and cookies
+# API with NestJS #4. Error handling and data validation
 
-Basics of connecting our NestJS application with a PostgreSQL database.
+how error handling and validation works in NestJS. Thanks to looking into how the default BaseExceptionFilter works under the hood, we now know how to handle various exceptions properly. We know also know how to change the default behavior if there is such a need. We’ve also how to use the ValidationPipe and the class-validator library to validate incoming data.
 
 ## dependencies:
 
-- @types/bcrypt
-- bcrypt
-- @nestjs/passport
-- passport
-- @types/passport-local
-- passport-local
-- @types/express
-- @nestjs/jwt
-- passport-jwt
-- @types/passport-jwt
-- cookie-parser
-- @types/cookie-parser
+- class-validator
+- class-transformer
