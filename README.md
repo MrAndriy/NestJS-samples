@@ -1,3 +1,7 @@
-# API with NestJS #7. Creating relationships with Postgres and TypeORM
+# API with NestJS #8. Writing unit tests
 
-how we can modify the response that we send back to our users. While the most straightforward way to do so is to serialize the response with ClassSerializerInterceptor, we can also create our own interceptor. We’ve also looked into how we can bypass the issue of using the @Res() decorator.
+To do so, we’ve used the Jest library that comes bundled with NestJS. We’ve also used some of the built-in utilities to mock various services and modules properly. One of the most important ones was mocking the database connection so that we can keep our tests isolated.
+
+# dependencies
+
+- @nestjs/testing
