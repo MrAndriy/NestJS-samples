@@ -1,3 +1,3 @@
-# API with NestJS #14. Improving performance of our Postgres database with indexes
+# API with NestJS #16. Using the array data type with PostgreSQL and TypeORM
 
-basics of creating indexes in the Postgres database. We’ve also briefly touched on the subject of various index types. To better understand how our database works, we also used the EXPLAIN command to see how effective our indexes are. Since indexes can substantially improve our application’s performance if used currently, they are definitely worth checking out.
+The concept of arrays in PostgreSQL both through writing SQL queries and using TypeORM. Thanks to knowing how to deal with arrays through SQL, we could better integrate them into our NestJS code. Fortunately, TypeORM allows us to write SQL queries ourselves, so the knowledge of Postgres really can come in handy.
