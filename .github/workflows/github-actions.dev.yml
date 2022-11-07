@@ -54,7 +54,6 @@ jobs:
       - name: make PR to main branch
         uses: peter-evans/create-pull-request@v4
         with:
-          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'update'
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
