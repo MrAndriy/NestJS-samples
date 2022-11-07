@@ -22,10 +22,12 @@
     "check-branch-name": "chmod 755 ./husky/check_branch_naming.sh && sh ./husky/check_branch_naming.sh"
   },
   "dependencies": {
+    "@elastic/elasticsearch": "^8.5.0",
     "@hapi/joi": "^17.1.1",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/elasticsearch": "^9.0.0",
     "@nestjs/jwt": "^9.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/passport": "^9.0.0",
