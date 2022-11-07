@@ -20,13 +20,6 @@ jobs:
 
       - name: Start containers
         run: docker-compose -f "docker-compose.yml" up -d --build
-        env:
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          ELASTIC_PASSWORD: ${{ secrets.ELASTIC_PASSWORD }}
-          PGADMIN_DEFAULT_PASSWORD: ${{ secrets.PGADMIN_DEFAULT_PASSWORD }}
-          PGADMIN_DEFAULT_EMAIL: ${{ secrets.PGADMIN_DEFAULT_EMAIL }}
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
