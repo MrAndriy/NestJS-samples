@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Start containers
+        run: docker-compose -f "docker-compose.yml" up -d --build
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -40,3 +43,18 @@ jobs:
 
       - name: test
         run: yarn test
+
+      - name: Stop containers
+        run: docker-compose -f "docker-compose.yml" down
+
+      - name: PR to main branch
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'dev'
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Merge dev to main'
+          title: 'Merge dev to main'
+          body: 'Merge dev to main'
+          base: 'main'
+          labels: 'update'
+          branch: 'merge-dev-to-main'
