@@ -1,0 +1,42 @@
+name: Deploy
+
+on:
+  push:
+    branches: ['main', 'dev']
+  pull_request:
+    branches: ['main', 'dev']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: unshalow
+        run: git fetch --prune --unshallow
+
+      - name: install modules
+        run: yarn
+
+      - name: lint code
+        run: yarn lint
+
+      - name: format code
+        run: yarn format
+
+      - name: build project
+        run: yarn build
+
+      - name: test
+        run: yarn test
