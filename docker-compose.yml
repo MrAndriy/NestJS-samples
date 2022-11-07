@@ -7,11 +7,12 @@ services:
       - '5432:5432'
     volumes:
       - postgres_vol:/data/postgres
-    env_file:
-      # - docker.env
-      POSTGRES_USER=admin
-      POSTGRES_PASSWORD=admin
-      POSTGRES_DB=nestjs
+    # env_file:
+    # - docker.env
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=nestjs
     networks:
       - postgres
 
@@ -24,10 +25,11 @@ services:
       - '8080:80'
     volumes:
       - postgres_vol:/root/.pgadmin
-    env_file:
-      # - docker.env
-      PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD=admin
+    # env_file:
+    # - docker.env
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
     networks:
       - postgres
 
