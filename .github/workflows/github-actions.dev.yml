@@ -57,8 +57,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'update'
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          title: 'CI-CD: update'
-          branch: 'update'
-          base: 'main'
+          title: ${{ steps.vars.outputs.pr_title }}
+          body: ${{ steps.vars.outputs.pr_body }}
+          branch: 'main'
+          base: 'dev'
           labels: |
             automated pr
