@@ -7,6 +7,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   Req,
   UseGuards,
   UseInterceptors
@@ -23,14 +24,17 @@ import RequestWithUser from '../authentication/requestWithUser.interface'
 export default class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
-  @Get()
-  getAllPosts() {
-    return this.postsService.getAllPosts()
-  }
-
   @Get(':id')
   getPostById(@Param() { id }: FindOneParams) {
     return this.postsService.getPostById(Number(id))
+  }
+
+  @Get()
+  async getPosts(@Query('search') search: string) {
+    if (search) {
+      return this.postsService.searchForPosts(search)
+    }
+    return this.postsService.getAllPosts()
   }
 
   @Post()
