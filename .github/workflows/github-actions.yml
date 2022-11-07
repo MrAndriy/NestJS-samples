@@ -48,14 +48,13 @@ jobs:
       - name: Stop containers
         run: docker-compose -f "docker-compose.yml" down
 
-      - name: PR to main branch
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'dev'
+      - name: make PR to main branch
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'Merge dev to main'
-          title: 'Merge dev to main'
-          body: 'Merge dev to main'
+          commit-message: 'update'
+          title: 'update'
+          body: 'update'
+          branch: 'update'
           base: 'main'
           labels: 'update'
-          branch: 'merge-dev-to-main'
