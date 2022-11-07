@@ -59,5 +59,6 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: 'CI-CD: update'
           branch: 'dev'
+          base: 'main'
           labels: |
             automated pr
