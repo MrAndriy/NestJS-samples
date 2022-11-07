@@ -1,4 +1,3 @@
-# API with NestJS #13. Implementing refresh tokens using JWT
+# API with NestJS #14. Improving performance of our Postgres database with indexes
 
-A fully functional refresh token flow.
-Also addressed a few issues that you might face when implementing authentication, such as potential database leaks and unwanted logging in on multiple devices. There is still a place for further improvements, such as making fewer queries to the database when authenticating with the access token.
+basics of creating indexes in the Postgres database. We’ve also briefly touched on the subject of various index types. To better understand how our database works, we also used the EXPLAIN command to see how effective our indexes are. Since indexes can substantially improve our application’s performance if used currently, they are definitely worth checking out.
