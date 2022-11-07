@@ -58,7 +58,6 @@ jobs:
           commit-message: 'update'
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: 'CI-CD: update'
-          branch: 'main'
-          base: 'main'
+          branch: 'dev'
           labels: |
             automated pr
