@@ -33,10 +33,32 @@ describe('The AuthenticationService', () => {
     }).compile()
     authenticationService = await module.get(AuthenticationService)
   })
-  describe('when creating a cookie', () => {
+  describe('when creating a cookie with jwt access token', () => {
     it('should return a string', () => {
       const userId = 1
-      expect(typeof authenticationService.getCookieWithJwtToken(userId)).toEqual('string')
+      expect(typeof authenticationService.getCookieWithJwtAccessToken(userId)).toEqual('string')
+    })
+  })
+
+  describe('when creating a cookie with a refresh token', () => {
+    it('should return an object', () => {
+      const userId = 1
+      expect(typeof authenticationService.getCookieWithJwtRefreshToken(userId)).toEqual('object')
+    })
+  })
+
+  describe('when log out', () => {
+    it('should return an array', () => {
+      expect(Array.isArray(authenticationService.getCookiesForLogOut())).toEqual(true)
+    })
+
+    it('should return an array with two elements', () => {
+      expect(authenticationService.getCookiesForLogOut().length).toEqual(2)
+    })
+
+    it('should return an array with two elements of type string', () => {
+      expect(typeof authenticationService.getCookiesForLogOut()[0]).toEqual('string')
+      expect(typeof authenticationService.getCookiesForLogOut()[1]).toEqual('string')
     })
   })
 })

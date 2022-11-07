@@ -21,7 +21,7 @@ class Post {
 
   @ManyToMany(() => Category, (category: Category) => category.posts)
   @JoinTable()
-  public categories: Category[];
+  public categories: Category[]
 }
 
 export default Post
