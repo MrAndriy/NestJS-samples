@@ -50,15 +50,3 @@ jobs:
 
       - name: add all files
         run: git add .
-
-      - name: make PR to main branch
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'update'
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          title: ${{ steps.vars.outputs.pr_title }}
-          body: ${{ steps.vars.outputs.pr_body }}
-          branch: 'main'
-          labels: |
-            automated pr
