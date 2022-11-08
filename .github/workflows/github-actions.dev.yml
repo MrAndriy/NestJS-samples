@@ -1,10 +1,10 @@
-name: CD
+name: CI
 
 on:
   push:
-    branches: ['main']
+    branches: ['dev']
   pull_request:
-    branches: ['main']
+    branches: ['dev']
   workflow_dispatch:
 
 jobs:
@@ -36,6 +36,9 @@ jobs:
       - name: lint code
         run: yarn lint
 
+      - name: format code
+        run: yarn format
+
       - name: build project
         run: yarn build
 
@@ -44,3 +47,12 @@ jobs:
 
       - name: Stop containers
         run: docker-compose -f "docker-compose.yml" down
+
+      - name: add all files
+        run: git add .
+
+      - name: extract git commit data
+        uses: rlespinasse/git-commit-data-action@v1.x
+
+      - name: Update author information
+        run: echo ${{env.GIT_COMMIT_AUTHOR_NAME}} > AUTHOR

@@ -78,7 +78,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && check-branch-name"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
