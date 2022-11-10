@@ -28,7 +28,11 @@ import { EmailSubscriptionsModule } from './email-subscriptions/email-subscripti
         ELASTICSEARCH_USERNAME: Joi.string(),
         ELASTICSEARCH_PASSWORD: Joi.string(),
         SUBSCRIBERS_SERVICE_HOST: Joi.string().required(),
-        SUBSCRIBERS_SERVICE_PORT: Joi.number().required()
+        SUBSCRIBERS_SERVICE_PORT: Joi.number().required(),
+        RABBITMQ_USER: Joi.string().required(),
+        RABBITMQ_PASSWORD: Joi.string().required(),
+        RABBITMQ_HOST: Joi.string().required(),
+        RABBITMQ_QUEUE_NAME: Joi.string().required()
       })
     }),
 

@@ -1,8 +1,19 @@
-import { Body, Controller, Get, Inject, Post } from '@nestjs/common'
+import {
+  Body,
+  ClassSerializerInterceptor,
+  Controller,
+  Get,
+  Inject,
+  Post,
+  UseGuards,
+  UseInterceptors
+} from '@nestjs/common'
 import { ClientProxy } from '@nestjs/microservices'
+import JwtAuthenticationGuard from '../authentication/jwt-authentication.guard'
 import CreateSubscriberDto from './dto/create-email-subscription.dto'
 
-@Controller('email-subscriptions')
+@Controller('subscribers')
+@UseInterceptors(ClassSerializerInterceptor)
 export class EmailSubscriptionsController {
   constructor(@Inject('SUBSCRIBERS_SERVICE') private subscribersService: ClientProxy) {}
 
@@ -17,6 +28,7 @@ export class EmailSubscriptionsController {
   }
 
   @Post()
+  @UseGuards(JwtAuthenticationGuard)
   async createPost(@Body() subscriber: CreateSubscriberDto) {
     return this.subscribersService.send(
       {
