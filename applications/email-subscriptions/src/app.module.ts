@@ -20,7 +20,11 @@ import { Subscriber } from './subscribers/subscriber.entity'
         POSTGRES_USER: Joi.string().required(),
         POSTGRES_PASSWORD: Joi.string().required(),
         POSTGRES_DB: Joi.string().required(),
-        PORT: Joi.number()
+        PORT: Joi.number(),
+        RABBITMQ_USER: Joi.string().required(),
+        RABBITMQ_PASSWORD: Joi.string().required(),
+        RABBITMQ_HOST: Joi.string().required(),
+        RABBITMQ_QUEUE_NAME: Joi.string().required()
       })
     })
   ],

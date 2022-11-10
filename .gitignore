@@ -1,6 +1,6 @@
 # compiled output
-/dist/**
-/node_modules
+**/dist/
+**/node_modules/
 
 # Logs
 logs
@@ -36,16 +36,4 @@ lerna-debug.log*
 
 # env files
 *.env
-applications/email-subscriptions/dist/app.controller.d.ts
-applications/email-subscriptions/dist/app.controller.js
-applications/email-subscriptions/dist/app.controller.js.map
-applications/email-subscriptions/dist/app.module.d.ts
-applications/email-subscriptions/dist/app.module.js
-applications/email-subscriptions/dist/app.module.js.map
-applications/email-subscriptions/dist/app.service.d.ts
-applications/email-subscriptions/dist/app.service.js
-applications/email-subscriptions/dist/app.service.js.map
-applications/email-subscriptions/dist/main.d.ts
-applications/email-subscriptions/dist/main.js
-applications/email-subscriptions/dist/main.js.map
-applications/email-subscriptions/dist/tsconfig.build.tsbuildinfo
+
