@@ -7,6 +7,7 @@ import { AuthenticationModule } from './authentication/authentication.module'
 import { CategoriesModule } from './categories/categories.module'
 import * as Joi from '@hapi/joi'
 import { SearchModule } from './search/search.module'
+import { EmailSubscriptionsModule } from './email-subscriptions/email-subscriptions.module'
 
 @Module({
   imports: [
@@ -25,14 +26,18 @@ import { SearchModule } from './search/search.module'
         JWT_REFRESH_TOKEN_EXPIRATION_TIME: Joi.string().required(),
         ELASTICSEARCH_NODE: Joi.string(),
         ELASTICSEARCH_USERNAME: Joi.string(),
-        ELASTICSEARCH_PASSWORD: Joi.string()
+        ELASTICSEARCH_PASSWORD: Joi.string(),
+        SUBSCRIBERS_SERVICE_HOST: Joi.string().required(),
+        SUBSCRIBERS_SERVICE_PORT: Joi.number().required()
       })
     }),
+
     DatabaseModule,
     UsersModule,
     AuthenticationModule,
     CategoriesModule,
-    SearchModule
+    SearchModule,
+    EmailSubscriptionsModule
   ],
   controllers: [],
   providers: []
