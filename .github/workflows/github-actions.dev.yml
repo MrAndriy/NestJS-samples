@@ -27,26 +27,20 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
-      - name: unshalow
-        run: git fetch --prune --unshallow
-
       - name: install modules
         run: yarn
+      
+      - name: Install dependencies
+        run: npx lerna bootstrap
 
       - name: lint code
-        run: yarn lint
-
-      - name: format code
-        run: yarn format
+        run: lerna run lint
 
       - name: build project
-        run: yarn build
+        run: lerna run build
 
       - name: test
-        run: yarn test
+        run: lerna run test
 
       - name: Stop containers
         run: docker-compose -f "docker-compose.yml" down
-
-      - name: add all files
-        run: git add .
