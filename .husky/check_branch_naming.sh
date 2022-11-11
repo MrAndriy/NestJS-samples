@@ -1,12 +1,24 @@
 #!/usr/bin/env bash
 local_branch_name="$(git rev-parse --abbrev-ref HEAD)"
 
-valid_branch_regex='^((fix|feat|part)(\/|-)[a-zA-Z0-9\-]+)$'
+# Color codes
+red='\033[0;31m'
+yellow='\033[0;33m'
+blue='\033[0;34m'
+green='\033[0;32m'
+NC='\033[0m' # No colors
 
-message="There is something wrong with your branch name. Branch names in this project must adhere to this contract: $valid_branch_regex. Your commit will be rejected. You should rename your branch to a valid name and try again."
+valid_branch_regex='^((feature|bugfix|improvement|library|prerelease|release|hotfix|part)(\/|-)[a-zA-Z0-9\-]+)$'
 
 if [[ ! $local_branch_name =~ $valid_branch_regex ]]; then
-    echo "$message"
+    printf "${red} Use semantic branch names (ﾉ˚Д˚)ﾉ "
+    printf "\n"
+    printf "${yellow} <branch>/${green}<short summary or ticket number>${NC}\n"
+    printf " ${yellow}    │${green}             │  \n"
+    printf " ${yellow}    │${green}             └─> Summary or ticket in present tense. Not capitalized. No period at the end. \n"
+    printf " ${yellow}    │\n"
+    printf " ${yellow}    └─> Branch: feature, bugfix, improvement, library, prerelease, release, hotfix or part. ${NC}\n"
+    printf "\n"
     exit 1
 fi
 
