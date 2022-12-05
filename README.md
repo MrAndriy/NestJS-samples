@@ -1,2 +1,2 @@
-## API with NestJS #19. Using RabbitMQ to communicate with microservices
+## API with NestJS #20. Communicating with microservices using the gRPC framework
 
