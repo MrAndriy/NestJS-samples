@@ -7,11 +7,10 @@ import { AuthenticationModule } from './authentication/authentication.module'
 import { CategoriesModule } from './categories/categories.module'
 import * as Joi from '@hapi/joi'
 import { SearchModule } from './search/search.module'
-import { EmailSubscriptionsModule } from './email-subscriptions/email-subscriptions.module'
+import { SubscribersModule } from './subscribers/subscribers.module'
 
 @Module({
   imports: [
-    PostsModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({
         POSTGRES_HOST: Joi.string().required(),
@@ -32,16 +31,18 @@ import { EmailSubscriptionsModule } from './email-subscriptions/email-subscripti
         RABBITMQ_USER: Joi.string().required(),
         RABBITMQ_PASSWORD: Joi.string().required(),
         RABBITMQ_HOST: Joi.string().required(),
-        RABBITMQ_QUEUE_NAME: Joi.string().required()
+        RABBITMQ_QUEUE_NAME: Joi.string().required(),
+        GRPC_CONNECTION_URL: Joi.string().required()
       })
     }),
 
+    PostsModule,
     DatabaseModule,
     UsersModule,
     AuthenticationModule,
     CategoriesModule,
     SearchModule,
-    EmailSubscriptionsModule
+    SubscribersModule
   ],
   controllers: [],
   providers: []
